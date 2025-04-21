@@ -26,5 +26,78 @@
 %% Maak voor elke fase (behalve het literatuuronderzoek) een NIEUW HOOFDSTUK aan
 %% en geef het een gepaste titel.
 
-\lipsum[21-25]
+Deze thesis begon met een grondige requirementsanalyse om de functionele en niet-functionele eisen voor de synchronisatie- en back-upomgeving van Electronic Flight Bags (EFB's) in kaart te brengen. Vanuit deze analyse werd een combinatie van literatuurstudie, simulaties en een proof-of-concept (PoC) toegepast om de centrale onderzoeksvraag te beantwoorden:
 
+\textit{Hoe kan een veilige en gecontroleerde omgeving worden ontworpen voor de synchronisatie en back-up van data in Electronic Flight Bags zonder of met beperkte internetverbinding, om gegevensverlies te minimaliseren?}
+
+Deze aanpak garandeerde dat de voorgestelde oplossing niet alleen technisch haalbaar was, maar ook voldeed aan de specifieke eisen en beperkingen van de werkomgeving waarin deze werd toegepast. Hierbij werd rekening gehouden met realistische scenario’s zoals beperkte of onderbroken netwerkverbindingen, beveiligingseisen en operationele continuïteit.
+
+\section{Fase 1: Requirementsanalyse}
+De eerste fase van het onderzoek richtte zich op het uitvoeren van een gedetailleerde requirementsanalyse. Dit omvatte de identificatie van de technische en operationele vereisten die nodig waren voor de ontwikkeling van een veilige en flexibele synchronisatie- en back-upomgeving voor EFB's. Essentiële parameters zoals Recovery Time Objective (RTO), Recovery Point Objective (RPO), databeveiliging en operationele continuïteit stonden centraal.
+
+De requirementsanalyse focuste op:
+\begin{itemize}
+    \item De functionele eisen voor gegevenssynchronisatie en back-upstrategieën.
+    \item De niet-functionele vereisten, zoals beveiliging, prestatie-eisen en betrouwbaarheid.
+    \item De impact van netwerkbeperkingen en offline operaties.
+    \item Evaluatie van de geschiktheid van bestaande oplossingen en technieken, zoals beschreven in de literatuurstudie.
+    \item Behoefteanalyse voor compliance met militaire en luchtvaartveiligheidsnormen zoals beschreven in \textcite{ACISAPGSECVEIL001} en \textcite{FAA_AC91-78A}.
+\end{itemize}
+
+\textbf{Resultaat:} Een requirementsdocument waarin de technische en operationele eisen van het proof-of-concept werden vastgelegd in \autoref{ch:requirements}.
+
+\section{Fase 2: Literatuurstudie}
+De tweede fase omvatte een uitgebreide literatuurstudie waarin best practices en bestaande methodologieën voor gegevenssynchronisatie en back-up in hybride en offline omgevingen werden geanalyseerd. Hierbij werd gebruikgemaakt van bronnen zoals \textcite{Yanamala2024} en \textcite{VinayakBhuvi} die hybride synchronisatie-oplossingen en cloud-integratie beschreven. Er werd extra aandacht besteed aan de implementatie van veilige gegevensoverdracht in operationele settings met beperkte connectiviteit, zoals beschreven door \textcite{SkybraryEFB}.
+
+De literatuurstudie richtte zich op:
+\begin{itemize}
+    \item De risico’s en beperkingen van synchronisatie en data-overdracht in kwetsbare operationele settings.
+    \item Beveiligingsprotocollen en encryptiemethoden zoals aanbevolen door \textcite{NISTFIPS140}.
+    \item Best practices voor disaster recovery en back-upbeheer zoals beschreven in \textcite{VeeamRTO} en \textcite{MicrosoftBackup}.
+\end{itemize}
+
+\textbf{Resultaat:} Een rapport dat een overzicht bood van relevante technologieën, strategieën en best practices, met een samenvatting van de belangrijkste bevindingen uit de literatuur in \autoref{ch:ch:stand-van-zaken}.
+
+\section{Fase 3: Proof-of-Concept (PoC)}
+Op basis van de inzichten uit de eerste twee fasen werd een proof-of-concept ontwikkeld waarin een veilige en gecontroleerde synchronisatie- en back-upomgeving voor EFB’s werd getest. Dit PoC werd uitgevoerd in een gesimuleerde omgeving waarin realistische operationele omstandigheden werden nagebootst.
+
+De testopstelling bestond uit:
+\begin{itemize}
+    \item Een on-premise serveromgeving gehost in een virtuele infrastructuur via \textbf{VirtualBox}.
+    \item Een \textbf{Veeam Backup}-oplossing geconfigureerd voor het maken van back-ups met meetbare RTO en RPO.
+    \item Simulatie van netwerkstoringen en het effect hiervan op de synchronisatie.
+    \item Encryptie van data-overdracht volgens de \textbf{NIST 800-88} en \textbf{FIPS 140-2} standaarden.
+    \item Implementatie van redundante opslagstrategieën in lijn met \textcite{AWSBackup} en \textcite{MicrosoftBackup}.
+\end{itemize}
+
+Het proof-of-concept werd getest in de volgende scenario’s:
+\begin{itemize}
+    \item Dataverlies en herstel via lokale back-ups.
+    \item Gegevenssynchronisatie zonder actieve netwerkverbinding.
+    \item Beveiligingsincidenten zoals ongeautoriseerde toegangspogingen.
+    \item Vergelijking van verschillende back-upstrategieën (lokaal vs. cloud-gebaseerd).
+\end{itemize}
+
+\textbf{Resultaat:} Een volledig functionerend proof-of-concept dat realistische scenario’s simuleerde en operationele parameters zoals RTO en RPO mat.
+
+\section{Fase 4: Validatie en Evaluatie}
+De vierde fase richtte zich op de validatie en evaluatie van het proof-of-concept. De prestaties werden beoordeeld aan de hand van prestatiemetingen en vergelijking met theoretische modellen uit de literatuurstudie.
+
+De evaluatie omvatte:
+\begin{itemize}
+    \item Prestatiemetingen van de back-up- en synchronisatiestrategieën.
+    \item Analyse van RTO en RPO-prestaties onder verschillende testomstandigheden.
+    \item Controle van de naleving van beveiligingsrichtlijnen volgens \textcite{ACISAPGSECVEIL001} en \textcite{AD070001}.
+    \item Identificatie van optimalisatiepunten en aanbevelingen voor toekomstige implementaties.
+\end{itemize}
+
+\textbf{Resultaat:} Een evaluatierapport waarin de prestaties van het PoC werden geanalyseerd en vergeleken met de theoretische verwachtingen, inclusief aanbevelingen voor toekomstige verbeteringen.
+
+\section{Tools en Technologieën}
+Voor de uitvoering van deze bachelorproef werden de volgende tools en technologieën ingezet:
+\begin{itemize}
+    \item \textbf{VirtualBox}: Voor het creëren van een virtuele on-premise server.
+    \item \textbf{Veeam Backup}: Voor het beheren en uitvoeren van back-upstrategieën.
+    \item \textbf{Microsoft Azure Backup / AWS Backup}: Voor cloudgebaseerde opslag en redundantie.
+    \item \textbf{Python / Excel}: Voor data-analyse en visualisatie van prestatiemetingen.
+\end{itemize}

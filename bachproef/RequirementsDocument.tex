@@ -1,0 +1,102 @@
+%==============================================================================
+% Requirements Document for Bachelor Thesis
+%==============================================================================
+% Based on the template provided for the Bachelor Thesis Proposal
+%==============================================================================
+
+\documentclass{hogent-article}
+
+\studyprogramme{Professionele bachelor toegepaste informatica}
+\course{Bachelorproef}
+\assignmenttype{Bijlage: Requirementsdocument}
+
+\academicyear{2024-2025}
+
+\title{Requirementsdocument voor Back-up en Synchronisatie op EFB's}
+
+\author{Stein Van Driessche}
+\email{stein.vandriesschen@student.hogent.be}
+
+\begin{document}
+    
+    \maketitle
+    
+    \section{Inleiding}
+    Dit requirementsdocument richt zich op de technische en functionele vereisten voor het ontwikkelen van een veilige en flexibele synchronisatie- en back-upstrategie voor Electronic Flight Bags (EFB's). De nadruk ligt op het functioneren in omgevingen met slechte of geen internetverbinding, terwijl wordt gegarandeerd dat synchronisatie en back-ups correct en volledig worden uitgevoerd.
+    
+    Het doel van dit document is om de continuïteit en integriteit van de EFB's te waarborgen, aangezien deze tablets essentieel zijn voor de operationele werking van het vliegtuig. Wanneer een EFB beschadigd raakt of niet operationeel is, kan dit directe gevolgen hebben voor de luchtwaardigheid van het vliegtuig.
+    
+    Daarnaast dient dit document als een basis voor het ontwerpen en ontwikkelen van het proof-of-concept (PoC). De vereisten die hierin worden beschreven, zorgen ervoor dat het PoC voldoet aan de operationele en technische eisen en een oplossing biedt voor de uitdagingen van synchronisatie en back-up in operationele contexten. Het probleemkader wordt kort aangestipt, maar verdere details zijn opgenomen in de hoofdtekst van de thesis.
+    
+    \section{Doelstellingen}
+    De hoofddoelstelling van dit onderzoek is het ontwikkelen van een veilige en gecontroleerde omgeving die:
+    \begin{itemize}
+        \item Operationeel blijft in kwetsbare en uitdagende contexten, zoals afgelegen locaties en onstabiele netwerkomgevingen.
+        \item Hersteltijden (\textit{Recovery Time Objective, RTO}) en dataverlies (\textit{Recovery Point Objective, RPO}) minimaliseert.
+        \item Het ontwerpen en testen van een proof-of-concept (PoC) dat de voorgestelde strategieën valideert door middel van simulaties en prestatie-evaluaties in realistische scenario’s.
+        \item Het evalueren van welke technologieën en procedures kunnen bijdragen aan een veilige en efficiënte gegevensoverdracht, inclusief versleuteling en failover-mechanismen, in situaties met beperkte connectiviteit.
+    \end{itemize}
+    
+    \section{Functionele Vereisten}
+    
+    \subsection{Synchronisatie}
+    \begin{itemize}
+        \item De oplossing moet data kunnen synchroniseren via een lokaal netwerk, Cloudservice of veilige overdracht via USB.
+        \item Er moet ondersteuning zijn voor zowel handmatige als automatische synchronisatieprocessen.
+        \item Encryptie moet worden toegepast tijdens dataoverdracht.
+        \item De oplossing moet compatibel zijn met verschillende netwerkomstandigheden, zoals publieke wifi, satellietverbindingen, of volledig offline scenario's.
+        \item Er moet een systeem zijn om conflicten te beheren bij het synchroniseren van gegevens, zoals dubbele bestanden of gewijzigde versies.
+        \item Na elke synchronisatie moet de integriteit van de gegevens worden gecontroleerd om te garanderen dat alle bestanden correct en volledig zijn overgedragen.
+    \end{itemize}
+    
+    \subsection{Back-ups}
+    \begin{itemize}
+        \item Dagelijkse back-ups van operationele gegevens moeten worden gegarandeerd.
+        \item Back-ups moeten zowel lokaal als in een gecentraliseerde omgeving kunnen worden opgeslagen.
+        \item Er moet een logging- en monitoringsysteem zijn om de status van back-ups te verifiëren.
+        \item Het moet mogelijk zijn om verschillende back-upfrequenties in te stellen (bijvoorbeeld per uur, dagelijks, wekelijks).
+        \item De oplossing moet meerdere versies van dezelfde bestanden kunnen bewaren, zodat herstel mogelijk is naar een eerdere staat.
+        \item Periodieke validatie van de back-ups moet worden uitgevoerd om te garanderen dat de opgeslagen gegevens bruikbaar zijn.
+        \item Back-ups moeten eenvoudig en snel kunnen worden hersteld naar de oorspronkelijke of een nieuwe EFB.
+        \item Als een back-up mislukt, moet de oplossing automatisch een alternatieve back-uplocatie kiezen.
+    \end{itemize}
+    
+    \subsection{Algemene Functionele Vereisten}
+    \begin{itemize}
+        \item De interface moet intuïtief en eenvoudig te gebruiken zijn voor eindgebruikers, zonder complexe configuraties.
+        \item Gedetailleerde logboeken moeten worden bijgehouden voor alle synchronisatie- en back-upprocessen, inclusief fouten en waarschuwingen.
+        \item De oplossing moet compatibel zijn met bestaande systemen, zoals Veeam Backup of vergelijkbare technologieën.
+        \item De oplossing moet voldoen aan relevante standaarden en regelgeving binnen de luchtvaartsector.
+    \end{itemize}
+
+    
+    \section{Technische Vereisten}
+    \begin{itemize}
+    \item De oplossing moet volledig compatibel zijn met bestaande infrastructuren, waaronder back-upsoftware zoals Veeam Backup en andere gangbare tools, om integratie te vergemakkelijken.
+    \item Parameters zoals Recovery Time Objective (RTO) en Recovery Point Objective (RPO) moeten meetbaar zijn, met mogelijkheden om deze parameters aan te passen op basis van specifieke operationele eisen en scenario's.
+    \item De implementatie moet robuust functioneren bij beperkte bandbreedte en onbetrouwbare netwerkverbindingen, en mag niet afhankelijk zijn van een constante verbinding.
+    \item Gegevens moeten worden opgeslagen in een formaat dat voldoet aan standaardreglementen voor beveiliging, zoals encryptie van gevoelige informatie en naleving van relevante regelgeving.
+    \item Het systeem moet ondersteuning bieden voor veilige gegevensoverdracht, inclusief versleuteling tijdens het transport en controlemechanismen om gegevensintegriteit te waarborgen.
+    \item Er moet een mogelijkheid zijn om data lokaal op te slaan in situaties waarin externe opslag niet beschikbaar of onbetrouwbaar is.
+    \item Het ontwerp moet schaalbaar zijn, zodat toekomstige groei in datavolume en complexe operationele vereisten ondersteund kunnen worden zonder herziening van de basisarchitectuur.
+    \item Het systeem moet eenvoudig te monitoren en te beheren zijn, met ingebouwde functies voor foutmeldingen, logboeken en prestatiestatistieken.
+    \item Authenticatie- en autorisatiemechanismen moeten worden geïntegreerd om toegang tot de oplossing te beperken tot bevoegde gebruikers en apparaten.
+    \item Het systeem moet failover-mogelijkheden bevatten, zodat herstel van synchronisatie of back-ups mogelijk blijft bij onverwachte systeemstoringen.
+    \end{itemize}
+
+    
+    \section{Beperkingen}
+    \begin{itemize}
+    \item De oplossing mag geen afhankelijkheid hebben van constante internettoegang.
+    \item Gegevensoverdracht en -synchronisatie moeten robuust blijven in onstabiele omgevingen.
+    \item De implementatie mag geen significante impact hebben op de batterijduur van de EFB's.
+    \item De oplossing moet eenvoudig te implementeren zijn zonder complexe aanpassingen aan de bestaande workflows.
+    \item Het gebruik van externe opslagmedia, zoals USB-sticks, moet veilig en gecontroleerd verlopen, inclusief encryptie en authenticatie.
+    \item Het systeem moet schaalbaar zijn om te voldoen aan de groeiende eisen van dataopslag en synchronisatie.
+    \item Er mogen geen kritieke afhankelijkheden zijn van specifieke commerciële oplossingen om vendor lock-in te vermijden.
+    \item Het systeem moet voldoen aan relevante regelgeving en interne richtlijnen voor gegevensbeveiliging en luchtvaartstandaarden.
+    \item Testen en validatie moeten uitvoerbaar zijn in gesimuleerde operationele omgevingen zonder directe afhankelijkheid van live systemen.
+    \end{itemize}
+
+    
+\end{document}

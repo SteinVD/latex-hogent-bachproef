@@ -5,32 +5,34 @@
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
 \label{ch:inleiding}
 
-De inleiding moet de lezer net genoeg informatie verschaffen om het onderwerp te begrijpen en in te zien waarom de onderzoeksvraag de moeite waard is om te onderzoeken. In de inleiding ga je literatuurverwijzingen beperken, zodat de tekst vlot leesbaar blijft. Je kan de inleiding verder onderverdelen in secties als dit de tekst verduidelijkt. Zaken die aan bod kunnen komen in de inleiding~\autocite{Pollefliet2011}:
-
-\begin{itemize}
-  \item context, achtergrond
-  \item afbakenen van het onderwerp
-  \item verantwoording van het onderwerp, methodologie
-  \item probleemstelling
-  \item onderzoeksdoelstelling
-  \item onderzoeksvraag
-  \item \ldots
-\end{itemize}
+In moderne luchtvaartomgevingen spelen Electronic Flight Bags (EFB's) een essentiële rol in het ondersteunen van piloten bij het uitvoeren van vluchten. Deze tablets vervangen papieren handleidingen en vluchtplannen en bieden toegang tot kritieke informatie zoals navigatiekaarten, weersvoorspellingen en operationele richtlijnen. Het gebruik van EFB's brengt echter specifieke uitdagingen met zich mee, vooral in operationele settings waar de beschikbaarheid van internet beperkt of geheel afwezig is, zoals in afgelegen regio's of tijdelijke locaties. Dit bemoeilijkt betrouwbare synchronisatie en back-ups van essentiële data, wat een risico vormt voor operationele continuïteit.
 
 \section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}%
 \label{sec:probleemstelling}
 
-Uit je probleemstelling moet duidelijk zijn dat je onderzoek een meerwaarde heeft voor een concrete doelgroep. De doelgroep moet goed gedefinieerd en afgelijnd zijn. Doelgroepen als ``bedrijven,'' ``KMO's'', systeembeheerders, enz.~zijn nog te vaag. Als je een lijstje kan maken van de personen/organisaties die een meerwaarde zullen vinden in deze bachelorproef (dit is eigenlijk je steekproefkader), dan is dat een indicatie dat de doelgroep goed gedefinieerd is. Dit kan een enkel bedrijf zijn of zelfs één persoon (je co-promotor/opdrachtgever).
+Een concreet probleem waarmee de Belgische Luchtmacht in deze context wordt geconfronteerd, is hoe zij gevoelige data op EFB's kunnen beveiligen en synchroniseren zonder afhankelijk te zijn van constante internettoegang. Momenteel worden synchronisatieprocessen vaak uitgevoerd via clouddiensten zoals Nextcloud, maar deze oplossingen voldoen niet altijd aan de eisen voor veilige back-ups en operationele betrouwbaarheid. Daarnaast brengt het werken in onveilige netwerkomgevingen, zoals openbare wifi in hotels of lokale computers op geïmproviseerde locaties, extra risico’s met zich mee voor datalekken en gegevensverlies. Het ontbreken van een robuuste en gestandaardiseerde methode vergroot deze kwetsbaarheden en kan de operationele continuïteit in gevaar brengen.
 
 \section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}%
 \label{sec:onderzoeksvraag}
 
-Wees zo concreet mogelijk bij het formuleren van je onderzoeksvraag. Een onderzoeksvraag is trouwens iets waar nog niemand op dit moment een antwoord heeft (voor zover je kan nagaan). Het opzoeken van bestaande informatie (bv. ``welke tools bestaan er voor deze toepassing?'') is dus geen onderzoeksvraag. Je kan de onderzoeksvraag verder specifiëren in deelvragen. Bv.~als je onderzoek gaat over performantiemetingen, dan 
+Dit onderzoek richt zich op het ontwikkelen van een oplossing voor deze uitdagingen en wordt gedreven door de volgende centrale onderzoeksvraag:
+
+\textbf{Hoe kan een veilige en gecontroleerde omgeving worden ontworpen voor de synchronisatie en back-up van data in Electronic Flight Bags zonder of met beperkte internetverbinding, om gegevensverlies te minimaliseren?}
+
+Om deze hoofdvraag te beantwoorden, worden diverse deelvragen geformuleerd. Deze richten zich zowel op het identificeren van de problemen als op het ontwikkelen van mogelijke oplossingen:
+
+\begin{itemize}
+    \item Welke veiligheidsrisico’s en technische beperkingen zijn inherent aan de huidige methoden voor synchronisatie en back-ups?
+    \item Welke technologieën en procedures kunnen bijdragen aan een veilige en efficiënte gegevensoverdracht in afwezigheid van internet?
+\end{itemize}
+
+Door deze vragen te beantwoorden, kan het onderzoek zowel de bestaande uitdagingen analyseren als concrete oplossingen voorstellen.
 
 \section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}%
 \label{sec:onderzoeksdoelstelling}
 
-Wat is het beoogde resultaat van je bachelorproef? Wat zijn de criteria voor succes? Beschrijf die zo concreet mogelijk. Gaat het bv.\ om een proof-of-concept, een prototype, een verslag met aanbevelingen, een vergelijkende studie, enz.
+Het doel van dit onderzoek is om een concrete, schaalbare oplossing te ontwikkelen in de vorm van een proof-of-concept (PoC). Deze oplossing zal verschillende scenario’s simuleren, waaronder data-overdracht via lokale netwerken, het gebruik van veilige bestandsoverdrachten en de integratie van back-uptechnologieën zoals Veeam. Hierbij worden belangrijke operationele parameters zoals Recovery Time Objectives (RTO) en Recovery Point Objectives (RPO) in kaart gebracht. Dit onderzoek beoogt niet alleen een praktische oplossing te bieden, maar draagt ook bij aan de ontwikkeling van richtlijnen en best practices voor het gebruik van EFB's in complexe operationele contexten.
+
 
 \section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}%
 \label{sec:opzet-bachelorproef}
@@ -45,6 +47,8 @@ In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand v
 
 In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
 
-% TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
+In Hoofdstuk~\ref{ch:proofofconcept} wordt het proof-of-concept uitgewerkt en getest in verschillende scenario’s om de effectiviteit van de voorgestelde oplossing te valideren.
 
-In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
+In Hoofdstuk~\ref{ch:evaluatie} worden de resultaten van de simulaties en prestatiemetingen geanalyseerd en vergeleken met de theoretische verwachtingen.
+
+In Hoofdstuk~\ref{ch:conclusie} worden de belangrijkste bevindingen samengevat, een antwoord geformuleerd op de onderzoeksvragen en aanbevelingen gegeven voor toekomstig onderzoek binnen dit domein.

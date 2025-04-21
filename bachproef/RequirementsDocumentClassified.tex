@@ -1,0 +1,77 @@
+%==============================================================================
+% Requirements Document for Classified EFB Systems
+%==============================================================================
+% Based on the template provided for the Bachelor Thesis Proposal
+%==============================================================================
+
+\documentclass{hogent-article}
+
+\studyprogramme{Professionele bachelor toegepaste informatica}
+\course{Bachelorproef}
+\assignmenttype{Bijlage: Requirementsdocument Classified EFB}
+
+\academicyear{2024-2025}
+
+\title{Requirementsdocument voor Geclassificeerde EFB's}
+
+\author{Stein Van Driessche}
+\email{stein.vandriesschen@student.hogent.be}
+
+\begin{document}
+    
+    \maketitle
+    
+    \section{Inleiding}
+    Dit document beschrijft de vereisten voor het ontwikkelen van een veilige en gecontroleerde omgeving voor geclassificeerde Electronic Flight Bags (EFB's). De focus ligt op het waarborgen van gegevensbeveiliging en -integriteit, met inachtneming van de operationele beperkingen en veiligheidsrichtlijnen van het Belgische militaire domein. Het uiteindelijke doel is een theoretisch operationeel concept (CONUSE) te definiëren dat als basis dient voor toekomstige implementaties van geclassificeerde EFB-oplossingen.
+    
+    \section{Doelstellingen}
+    De hoofddoelstelling van dit project is het ontwikkelen van een concept voor een veilige en gecontroleerde omgeving die:
+    \begin{itemize}
+        \item De synchronisatie en opslag van geclassificeerde data mogelijk maakt zonder risico op datalekken.
+        \item Het verlies van gevoelige gegevens voorkomt door middel van beveiligingsmechanismen zoals auto-wipe en remote-wipe functionaliteiten.
+        \item Voldoet aan de Belgische militaire richtlijnen en veiligheidseisen voor informatie- en fysieke beveiliging.
+    \end{itemize}
+    
+    \section{Functionele Vereisten}
+    
+    \subsection{Synchronisatie}
+    \begin{itemize}
+        \item De oplossing moet veilige gegevensoverdracht ondersteunen tussen civiele en geclassificeerde EFB's via een secure enclave.
+        \item Er moet ondersteuning zijn voor zowel handmatige als geautomatiseerde synchronisatieprocessen.
+        \item Synchronisatie moet plaatsvinden zonder afhankelijk te zijn van een constante internetverbinding.
+    \end{itemize}
+    
+    \subsection{Beveiliging}
+    \begin{itemize}
+        \item De oplossing moet encryptie toepassen voor alle geclassificeerde data tijdens opslag en overdracht.
+        \item Auto-wipe en remote-wipe functionaliteiten moeten beschikbaar zijn in geval van verlies of diefstal van een EFB.
+        \item Authenticatie moet strikt worden gecontroleerd met meervoudige verificatiemethoden.
+    \end{itemize}
+    
+    \subsection{Algemene Functionele Vereisten}
+    \begin{itemize}
+        \item De oplossing moet gebruiksvriendelijk zijn voor piloten en technische ondersteuning.
+        \item De oplossing moet interoperabel zijn met bestaande civiele EFB-systemen.
+        \item Er moeten duidelijke limieten worden gedefinieerd voor de functionaliteit van geclassificeerde EFB's.
+    \end{itemize}
+    
+    \section{Technische Vereisten}
+    \begin{itemize}
+        \item De oplossing moet compatibel zijn met de bestaande infrastructuur en protocollen van het Belgische militaire domein.
+        \item Gegevens moeten worden opgeslagen in een beveiligd formaat dat voldoet aan militaire standaarden.
+        \item Het systeem moet robuust zijn in operationele settings met beperkte netwerkconnectiviteit.
+        \item Implementatie moet minimale impact hebben op de bestaande operationele workflows.
+    \end{itemize}
+    
+    \section{Beperkingen}
+    \begin{itemize}
+        \item De oplossing mag geen afhankelijkheid hebben van constante internettoegang.
+        \item Alleen goedgekeurde hardware en software mogen worden gebruikt voor implementatie.
+        \item De functionaliteit van de oplossing moet voldoen aan alle doctrines en richtlijnen van ACOS IS \& MR C\&I.
+    \end{itemize}
+
+    
+    \section{Conclusie}
+    Dit document biedt een overzicht van de vereisten voor het ontwerpen van een veilige omgeving voor geclassificeerde EFB's. Het legt de nadruk op gegevensbeveiliging, operationele continuïteit en naleving van militaire richtlijnen. De specificaties in dit document dienen als leidraad voor de ontwikkeling van een theoretisch operationeel concept (CONUSE), dat de basis vormt voor verdere implementaties. Door deze vereisten te volgen, kan een veilige en effectieve oplossing worden ontwikkeld die voldoet aan de unieke behoeften van het Belgische militaire domein.
+    
+\end{document}

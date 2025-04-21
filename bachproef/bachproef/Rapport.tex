@@ -1,11 +1,26 @@
-\chapter{\IfLanguageName{dutch}{Stand van zaken}{State of the art}}%
-\label{ch:stand-van-zaken}
+\section{Inleiding}
 
 Electronic Flight Bags (EFB’s) vormen een cruciaal onderdeel van moderne luchtvaartoperaties. Ze vervangen de traditionele papieren handleidingen en bieden piloten digitale toegang tot vluchtinformatie, navigatiegegevens, operationele richtlijnen en andere essentiële documenten. Door de implementatie van EFB’s kunnen luchtvaartmaatschappijen de efficiëntie van hun operaties verhogen, papierverbruik verminderen en de nauwkeurigheid van vluchtinformatie verbeteren \autocite{IFSAeroEFB, SkybraryEFB}. Ondanks de voordelen die deze technologie met zich meebrengt, vormen EFB’s ook aanzienlijke uitdagingen op het gebied van data-integriteit, back-upstrategieën en synchronisatiemethoden. Vooral in omgevingen met beperkte of volledig afwezige internetconnectiviteit kan het waarborgen van veilige en betrouwbare toegang tot cruciale vluchtgegevens problematisch zijn. Dit is met name relevant in militaire operaties, offshore vliegroutes en noodsituaties waarin directe verbindingen met een centrale server niet altijd beschikbaar zijn.
 
 Het ontbreken van een continue netwerkverbinding in zowel militaire als commerciële luchtvaartomgevingen vereist een robuuste strategie voor gegevensbeheer en herstel. Het synchroniseren en back-uppen van vluchtinformatie in afgelegen locaties of onder operationele beperkingen brengt complexe technische en veiligheidsvraagstukken met zich mee. Hybride back-upsystemen, versleutelde synchronisatiemethoden en veerkrachtige dataopslagmodellen zijn essentieel om gegevensverlies te voorkomen en de operationele continuïteit te waarborgen. Dit onderzoek baseert zich op uitgebreide literatuurstudies om inzicht te krijgen in best practices en innovatieve technologieën die bijdragen aan de ontwikkeling van een schaalbare en veilige oplossing.
 
+Volgens \textcite{Yanamala2024} kunnen hybride opslagsystemen, waarbij gegevens zowel lokaal als in de cloud worden opgeslagen, een oplossing bieden. Echter, hybride opslagmodellen zijn niet altijd voldoende om de beveiliging van kritieke data te garanderen. In scenario’s waar militaire of geclassificeerde informatie wordt verwerkt, wordt aanbevolen om extra redundantie te implementeren met geografisch gescheiden opslag en air-gapped back-ups. Dit betekent dat een systeem niet alleen lokaal en in de cloud data moet bewaren, maar ook gebruik moet maken van fysieke opslagmedia die volledig geïsoleerd blijven van netwerken om externe aanvallen te voorkomen.
 
+Een voorbeeld van een dergelijk model is de combinatie van hybride cloud met offline encryptieopslag, zoals beschreven door \textcite{MicrosoftBackup} en \textcite{AWSBackup}. Hierin wordt data versleuteld op een lokaal niveau voordat het wordt gerepliceerd naar de cloud, terwijl kritieke back-ups in een fysieke omgeving blijven opgeslagen. Dit vermindert de kans op gegevensverlies bij netwerkstoringen en zorgt ervoor dat in militaire of operationele luchtvaartscenario’s data altijd toegankelijk blijft, zelfs zonder een stabiele internetverbinding.
+
+Een andere belangrijke uitdaging binnen de luchtvaartsector is de beveiliging van gesynchroniseerde data. Versleutelde bestandsoverdracht en zero-trust beveiligingsmodellen spelen een steeds grotere rol bij het beschermen van gevoelige vluchtinformatie tegen cyberdreigingen en ongeautoriseerde toegang \autocite{NISTFIPS140, ACISAPGSECVEIL001}. In militaire operaties moeten EFB’s voldoen aan strikte veiligheidsnormen zoals die van de NATO-richtlijnen voor informatiebeveiliging \autocite{AD070001}. Dit betekent dat niet alleen de data zelf versleuteld moet zijn, maar ook de overdrachtsprotocollen en de opslaginfrastructuur moeten voldoen aan internationale cybersecuritynormen. Multi-factor authenticatie (MFA), hardware-gebaseerde encryptie en secure enclave-oplossingen zijn enkele van de technologieën die kunnen worden toegepast om te voldoen aan de eisen van zowel commerciële als militaire gebruikers.
+
+Volgens \textcite{VinayakBhuvi} kunnen traditionele netwerkbeveiligingsmodellen vaak tekortschieten in omgevingen met beperkte internetverbinding. Dit maakt het noodzakelijk om beveiligingsprotocollen te ontwikkelen die niet afhankelijk zijn van continue netwerktoegang, maar toch de gegevensintegriteit en authenticiteit waarborgen. Zero-trust architecturen en op certificaten gebaseerde encryptiemethoden worden steeds vaker toegepast om ervoor te zorgen dat alleen geautoriseerde gebruikers toegang krijgen tot geclassificeerde informatie binnen EFB-systemen. Daarnaast biedt \textcite{FAA_AC91-78A} richtlijnen voor het correct implementeren van beveiligde EFB-systemen binnen commerciële luchtvaart, waarbij naleving van regelgeving zoals de Federal Aviation Administration (FAA) en Europese luchtvaartautoriteiten (EASA) noodzakelijk is.
+
+Naast de beveiligingsaspecten van dataopslag en synchronisatie, speelt de herstelbaarheid van gegevens een cruciale rol in luchtvaartoperaties. De concepten Recovery Time Objective (RTO) en Recovery Point Objective (RPO) bepalen hoe snel een systeem kan herstellen na een storing en hoeveel data maximaal verloren mag gaan \autocite{VeeamRTO}. Dit is vooral van belang in scenario’s waarin vluchtgegevens essentieel zijn voor de operationele continuïteit van een luchtvaartmaatschappij of militaire missie. Volgens \textcite{Abdelaziz48PP100_116} moeten luchtvaartorganisaties strategieën ontwikkelen waarbij back-ups niet alleen periodiek worden uitgevoerd, maar ook realtime herstelopties bieden in het geval van een storing. Het testen van disaster recovery-plannen en failover-mechanismen is hierbij van cruciaal belang.
+
+Een andere relevante ontwikkeling is de integratie van off-grid synchronisatiemethoden zoals Logipad EFB, die samenwerking tussen piloten en co-piloten mogelijk maakt zonder dat een actieve internetverbinding vereist is \autocite{LogipadEFB}. Dit systeem maakt gebruik van peer-to-peer gegevensoverdracht, waarbij informatie direct wordt gedeeld tussen toestellen zonder een centrale server als tussenstation. Dit vermindert de afhankelijkheid van cloudservices en verhoogt de operationele flexibiliteit in omgevingen waar netwerkinfrastructuur beperkt is.
+
+Verder blijkt uit onderzoek van \textcite{EFBDataSecurity} dat connectiviteit en datasecurity nauw met elkaar verweven zijn. De implementatie van VPN-tunnels, end-to-end encryptie en beveiligde communicatieprotocollen kan bijdragen aan een robuuste oplossing voor synchronisatie en back-up van EFB’s. Data-integriteit en compliance met luchtvaartregelgeving zijn hierbij sleutelcomponenten die niet over het hoofd mogen worden gezien.
+
+Het DoD 5220.22-M-protocol biedt richtlijnen voor het veilig verwijderen van data en het beheren van verouderde opslagmedia binnen militaire IT-systemen \autocite{DoD5220}. Dit kan relevant zijn in situaties waarin EFB-apparaten opnieuw worden ingezet of uit dienst worden genomen, en waarbij data wiping technieken noodzakelijk zijn om te voldoen aan de veiligheidsnormen van defensieorganisaties.
+
+        
 \section{Dataopslag en Synchronisatiestrategieën voor EFB’s}
 
 In operationele luchtvaartomgevingen, met name in militaire en commerciële langeafstandsvluchten, is toegang tot up-to-date vluchtinformatie en operationele data cruciaal. Dit vraagt om een robuuste opslag- en synchronisatiestrategie die zowel lokaal als op externe servers functioneert zonder dat er gegevens verloren gaan of gecompromitteerd worden.
@@ -26,7 +41,7 @@ Een bijkomende overweging bij dataopslagstrategieën is het beheer van verouderd
 
 \textcite{FAA_AC91-78A} biedt richtlijnen voor de veilige opslag en het gebruik van EFB’s binnen de commerciële luchtvaart. Hieruit blijkt dat naast back-up en synchronisatie, ook regelmatige software-updates en integriteitscontroles essentieel zijn. Dit voorkomt dat corrupte of verouderde gegevens invloed hebben op de operaties van luchtvaartmaatschappijen en verbetert de compliance met FAA- en EASA-normen.
 
-
+        
 \subsection{Hybride Cloud- en Lokale Opslagmodellen}
 
 Een van de fundamentele vereisten voor een robuust EFB-gegevensbeheer is de implementatie van een hybride opslagmodel, dat zowel on-premise opslag als cloudgebaseerde oplossingen integreert. Dit model combineert de voordelen van directe lokale toegang tot cruciale vluchtgegevens met de schaalbaarheid en veiligheid van externe opslaginfrastructuren. In luchtvaartoperaties, waar de beschikbaarheid van een netwerkverbinding niet altijd gegarandeerd is, spelen hybride opslagmodellen een sleutelrol bij het minimaliseren van dataverlies en het maximaliseren van gegevensbeschikbaarheid \autocite{AWSBackup}.
@@ -44,7 +59,7 @@ Een belangrijk aandachtspunt binnen hybride opslag is de versleuteling van gegev
 Zero-trust beveiliging is een andere cruciale maatregel bij hybride opslag, zoals beschreven door \textcite{ACISAPGSECVEIL001}. In dit model krijgen gebruikers en systemen slechts toegang tot gegevens wanneer ze volledig geauthenticeerd en geautoriseerd zijn. Dit is bijzonder relevant in een militaire of hoogbeveiligde luchtvaartomgeving, waar ongeautoriseerde toegang tot vluchtgegevens ernstige gevolgen kan hebben.
 
 Tot slot biedt automatische beleidsgestuurde dataretentie een oplossing voor het beheer van langdurige opslag. \textcite{DoD5220} stelt dat oude of niet-gebruikte gegevens automatisch moeten worden verwijderd volgens een gespecificeerd vernietigingsprotocol, zodat opslagbronnen optimaal benut blijven en het risico op datalekken geminimaliseerd wordt.
-
+        
 \subsection{Zero-Trust Architectuur en Gegevensbeveiliging}
 
 Gezien de gevoelige aard van vluchtinformatie en de toenemende dreiging van cyberaanvallen, is een robuust beveiligingsmodel vereist dat zowel toegangscontrole, gegevensversleuteling als netwerkbeveiliging omvat. Volgens \textcite{NISTFIPS140} is gegevensversleuteling een cruciale vereiste voor het veilig opslaan en synchroniseren van EFB-data. Moderne encryptiemethoden zoals AES-256 en TLS 1.3 zorgen ervoor dat alleen geautoriseerde gebruikers toegang krijgen tot de gegevens. Echter, recente studies tonen aan dat deze methoden aanvullende technieken vereisen om bescherming te bieden tegen geavanceerde cyberdreigingen.
@@ -62,7 +77,7 @@ Een andere cruciale component van een zero-trust model is real-time monitoring e
 Naast netwerkbeveiliging speelt fysieke beveiliging van de EFB-apparaten zelf een belangrijke rol. \textcite{DoD5220} beschrijft methoden voor gegevensvernietiging en forensisch herstel om ervoor te zorgen dat geclassificeerde informatie niet toegankelijk is wanneer een apparaat verloren of gestolen wordt. Dit kan onder meer worden bereikt door automatische versleuteling van opslagmedia, remote wipe-functionaliteiten en self-destruction mechanisms die data onleesbaar maken wanneer een ongeautoriseerde gebruiker probeert toegang te krijgen.
 
 Eveneens moeten luchtvaartorganisaties en militaire instellingen regelmatig penetratietesten en security-audits uitvoeren om kwetsbaarheden in hun zero-trust infrastructuur te identificeren en te verhelpen. Volgens \textcite{ACISAPGSECVEIL004} moeten er simulaties van cyberaanvallen worden uitgevoerd om de weerbaarheid van het systeem tegen real-world dreigingen te testen. Dit helpt bij het valideren van de effectiviteit van encryptie, toegangscontrole en inbraakdetectiemechanismen.
-
+        
 \section{Recovery Time Objective (RTO) en Recovery Point Objective (RPO)}
 
 Het optimaliseren van Recovery Time Objective (RTO) en Recovery Point Objective (RPO) is van cruciaal belang om operationele continuïteit te waarborgen in omgevingen waar Electronic Flight Bags (EFB’s) worden gebruikt. Binnen de luchtvaartsector en militaire operaties kan een uitval van cruciale IT-systemen ernstige gevolgen hebben, waardoor de implementatie van efficiënte back-up- en herstelstrategieën een fundamentele noodzaak is.
@@ -84,7 +99,7 @@ Een extra maatregel die bijdraagt aan het optimaliseren van RTO en RPO is het in
 Naast technische oplossingen benadrukt \textcite{SkybraryEFB} het belang van regelmatige testen en audits van back-up- en herstelprocedures. Dit houdt in dat IT-beheerders periodieke tests moeten uitvoeren om te controleren of de hersteltijd en gegevensintegriteit voldoen aan de vastgestelde normen. Volgens \textcite{AD070001} kunnen disaster recovery drills en simulaties helpen bij het identificeren van zwakke schakels binnen het herstelproces en ervoor zorgen dat de organisatie adequaat voorbereid is op noodsituaties.
 
 Een real-time monitoring- en waarschuwingssysteem is eveneens een essentieel onderdeel van een robuuste RTO/RPO-strategie. \textcite{ACISAPGSECVEIL004} stelt dat geavanceerde monitoringtools zoals Security Information and Event Management (SIEM) en predictive analytics kunnen worden ingezet om afwijkingen te detecteren en preventieve maatregelen te nemen voordat een systeemcrash of gegevensverlies optreedt.
-
+        
 \section{Regelgeving en Normen voor EFB-gebruik}
 
 De regelgeving voor het gebruik van EFB’s verschilt per regio en sector, waarbij zowel burgerluchtvaartautoriteiten als militaire instanties specifieke richtlijnen hebben opgesteld om de risico’s van ongeautoriseerde toegang, gegevensverlies en cyberaanvallen te beperken. In deze sectie worden de belangrijkste voorschriften en normen geanalyseerd die van toepassing zijn op het beheer van EFB’s, met inbegrip van FAA-voorschriften, NAVO-beveiligingsrichtlijnen en Belgische militaire standaarden.
@@ -105,7 +120,7 @@ Binnen commerciële luchtvaart zijn er aanvullende normen voor cyberbeveiliging 
 
 Een ander belangrijk aspect van de regelgeving voor EFB’s is het beheer van digitale handtekeningen en authenticatiecertificaten. Zoals beschreven door \textcite{NISTFIPS140}, moeten cryptografische modules die worden gebruikt voor het authenticeren van EFB-gegevens voldoen aan de FIPS 140-2 of 140-3 normen. Dit betekent dat alle beveiligingsmechanismen binnen een EFB gecertificeerd moeten zijn door een erkende overheidsinstantie, zoals het National Institute of Standards and Technology (NIST) of de European Network and Information Security Agency (ENISA).
 
-
+        
 \section{Beschikbare Technologieën en Tools voor Synchronisatie en Back-up}
 
 Het effectief beheren van back-ups en synchronisatieprocessen binnen Electronic Flight Bags (EFB’s) vereist robuuste technologieën en tools die niet alleen voldoen aan de eisen voor data-integriteit, beveiliging en herstelbaarheid, maar ook optimaal functioneren in omgevingen met beperkte of geen netwerkconnectiviteit. Moderne oplossingen richten zich op hybride opslagmodellen, versleutelde data-overdracht, automatisering van back-upstrategieën en zero-trust beveiligingsarchitecturen. Hieronder volgt een overzicht van enkele van de meest gangbare en geavanceerde technologieën die beschikbaar zijn voor het beheer van EFB-data.
@@ -149,7 +164,7 @@ Logipad EFB ondersteunt automatische back-ups naar versleutelde opslagmedia, wat
 
 Elke back-up- en synchronisatieoplossing heeft unieke voordelen, afhankelijk van de operationele vereisten en beperkingen. Hieronder volgt een vergelijking van de belangrijkste eigenschappen van de besproken tools:
 
-\begin{sidewaystable}
+\begin{table}[h]
     \centering
     \begin{tabular}{|l|l|l|l|}
         \hline
@@ -162,12 +177,12 @@ Elke back-up- en synchronisatieoplossing heeft unieke voordelen, afhankelijk van
         \hline
     \end{tabular}
     \caption{Vergelijking van synchronisatie- en back-upoplossingen voor EFB's.}
-    \label{tab:vergelijking-tools}
-\end{sidewaystable}
+    \label{tab:backups}
+\end{table}
 
 De keuze voor een specifieke technologie hangt af van de behoeften van de organisatie. Voor militaire luchtvaart is Logipad EFB een geschikte oplossing vanwege de nadruk op offline synchronisatie en strikte gegevensbeveiliging. Voor commerciële luchtvaart bieden Azure Backup en AWS Backup robuuste mogelijkheden voor automatisering, schaalbaarheid en naleving van regelgeving. Veeam Backup biedt een optimale oplossing voor hybride cloudbeheer, ideaal voor organisaties die zowel on-premise als cloudopslag willen combineren.
 
-
+        
 \section{Toekomstige Ontwikkelingen en Best Practices}
 \label{sec:toekomstige-ontwikkelingen}
 
@@ -234,4 +249,18 @@ Op basis van de literatuur kunnen verschillende best practices worden geïdentif
     \item Periodieke compliance-audits, waarbij back-up- en synchronisatieprocedures worden getoetst aan internationale luchtvaart- en militaire regelgeving, zoals die van de FAA \autocite{FAA_AC91-78A} en NAVO \autocite{AD070001}.
 \end{itemize}
 
-\footnote{De volgende documenten werden geraadpleegd tijdens de literatuurstudie, maar worden niet opgenomen in de bibliografie aangezien het gaat om interne of niet-publieke bronnen: \textit{AD-070-001 - NAVO-richtlijnen voor informatiebeveiliging}, Interne documentatie defensie enkel voor beperkte verspreiding met name \textit{ACISAPGSECVEIL001 t.e.m. ACISAPGSECVEIL004}, \textit{ACISAPGCYBCYBS001}, \textit{ACISSPSCYBACCR001}, \textit{ACISSPSCYBMCMT001}, \textit{ACISGIDINFOSECICPN001}, \textit{DGMRSPSMGTPOLCCSH101}, alsook de productpagina's van \textit{ForeFlight} en \textit{Logipad \& Ditto}, die onvoldoende betrouwbare bronvermelding bevatten.}
+        
+\section{Conclusie}
+\label{sec:conclusie}
+
+Deze literatuurstudie bevestigt dat een effectieve synchronisatie- en back-upstrategie voor Electronic Flight Bags (EFB’s) afhankelijk is van een combinatie van hybride cloud- en lokale opslagmodellen, zero-trust beveiligingsarchitecturen, en geavanceerde encryptietechnologieën. De implementatie van een multi-tier opslagsysteem, zoals aanbevolen door \textcite{AWSBackup} en \textcite{MicrosoftBackup}, vermindert de afhankelijkheid van internetconnectiviteit en zorgt ervoor dat cruciale vluchtgegevens te allen tijde toegankelijk en beveiligd blijven.
+
+Daarnaast toont de literatuur aan dat gegevensintegriteit en beveiliging absolute prioriteiten moeten zijn bij het ontwerp van EFB-systemen. Dit wordt ondersteund door de richtlijnen van NAVO en de FAA, die strenge eisen stellen aan encryptie, toegangsbeheer en compliance \autocite{FAA_AC91-78A, AD070001}. De toepassing van zero-trust beveiligingsmodellen, waarbij continue authenticatie en gecontroleerde toegang essentieel zijn, draagt verder bij aan de bescherming van gevoelige luchtvaartdata tegen cyberdreigingen \autocite{VinayakBhuvi}.
+
+Een andere belangrijke bevinding uit deze studie is de rol van geavanceerde technologieën zoals blockchain en AI bij het verbeteren van de betrouwbaarheid en veiligheid van EFB-back-ups. Blockchain-gebaseerde audit trails bieden een tamper-proof mechanisme voor het registreren van gegevenswijzigingen, waardoor het risico op ongeautoriseerde aanpassingen drastisch wordt verlaagd \autocite{VinayakBhuvi}. AI-gestuurde anomaly detection kan daarnaast afwijkingen in synchronisatie- en back-upprocessen tijdig detecteren en proactief reageren om mogelijke incidenten te mitigeren \autocite{Abdelaziz48PP100_116}.
+
+Verder bevestigt deze studie dat autonome back-upsystemen met zelfherstellende capaciteiten een belangrijke ontwikkeling zijn in het waarborgen van operationele continuïteit, vooral in omgevingen waar menselijke interventie beperkt is. Het gebruik van automatische verificatieprocedures, failover-mechanismen en foutcorrectie-algoritmen verbetert de efficiëntie van herstelprocessen en minimaliseert de impact van systeemuitval \autocite{AWSBackup}.
+
+Tot slot is het duidelijk dat best practices voor gegevensbeheer niet alleen gericht moeten zijn op technologische oplossingen, maar ook op naleving van strikte regelgeving en operationele richtlijnen. De integratie van edge computing en gedecentraliseerde opslagmodellen kan de afhankelijkheid van centrale cloudsystemen verminderen, terwijl periodieke compliance-audits en risicobeoordelingen noodzakelijk blijven om te voldoen aan industriële en militaire standaarden.
+
+Door deze bevindingen te combineren, wordt een solide basis gelegd voor de verdere ontwikkeling van robuuste, efficiënte en veilige synchronisatie- en back-upstrategieën voor luchtvaartomgevingen. De integratie van geavanceerde technologieën, in combinatie met strenge beveiligingsmaatregelen en naleving van internationale regelgeving, zal bijdragen aan een veerkrachtiger en betrouwbaarder EFB-systeem, zelfs in uitdagende operationele omstandigheden.

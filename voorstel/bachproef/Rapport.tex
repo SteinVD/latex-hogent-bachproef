@@ -1,0 +1,83 @@
+\documentclass{hogent-article}
+\usepackage[dutch]{babel}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{bachproef.bib}
+
+\title{Uitgebreide Literatuurstudie: Veilige Synchronisatie- en Back-upstrategieën voor Electronic Flight Bags}
+\author{Stein Van Driessche}
+\email{stein.vandriesschen@student.hogent.be}
+\date{\today}
+\supervisor[Co-promotor]{T. De Quick (Quick IT GCV, \href{mailto:toon\_dequick@hotmail.com}{toon\_dequick@hotmail.com})
+    
+    \begin{document}
+        
+        \maketitle
+        
+        \section{Inleiding}
+        
+        Electronic Flight Bags (EFB’s) zijn een essentieel onderdeel geworden van moderne luchtvaartoperaties, waarbij ze traditionele papieren handleidingen vervangen door digitale systemen die piloten voorzien van vluchtinformatie, navigatiegegevens en operationele richtlijnen. Hoewel deze technologieën tal van voordelen bieden, brengen ze ook aanzienlijke uitdagingen met zich mee, vooral op het gebied van **data-integriteit, back-upstrategieën en synchronisatiemethoden** in omgevingen met beperkte internetconnectiviteit.
+        
+        Het ontbreken van een continue netwerkverbinding in militaire en commerciële luchtvaartomgevingen vereist een robuuste strategie voor **gegevensbeheer en herstel**. Dit onderzoek baseert zich op uitgebreide literatuurstudies om inzicht te krijgen in best practices en innovatieve technologieën op het gebied van **hybride back-upsystemen, versleutelde synchronisatie en veerkrachtige dataopslagmodellen**.
+        
+        \section{Dataopslag en Synchronisatiestrategieën voor EFB’s}
+        
+        Een van de grootste uitdagingen bij het gebruik van EFB’s is het waarborgen van **gegevensbeschikbaarheid en beveiliging** in situaties waarin netwerkverbindingen onbetrouwbaar of afwezig zijn. Volgens \textcite{Yanamala2024} kunnen hybride opslagsystemen, waarbij gegevens zowel **lokaal als in de cloud** worden opgeslagen, een oplossing bieden. Dit model maakt het mogelijk om gegevens lokaal toegankelijk te houden en periodiek te synchroniseren met een gecentraliseerde opslagomgeving zodra een verbinding beschikbaar is.
+        
+        \subsection{Hybride Cloud- en Lokale Opslagmodellen}
+        
+        Volgens \textcite{AWSBackup} bieden multi-tier opslagmodellen een extra laag redundantie door kritieke data zowel lokaal als in de cloud op te slaan. Dit zorgt ervoor dat in geval van systeemuitval een back-up snel kan worden hersteld zonder afhankelijkheid van een internetverbinding. \textcite{MicrosoftBackup} benadrukt dat een **hybride aanpak**, waarbij **on-premise opslag en cloudoplossingen** worden gecombineerd, de meest efficiënte manier is om data-integriteit te garanderen.
+        
+        Een effectieve oplossing is het gebruik van **incremental back-ups**, waarbij alleen gewijzigde gegevens worden gesynchroniseerd in plaats van volledige datasets. Dit vermindert de belasting op het netwerk en verkort de synchronisatietijd aanzienlijk \autocite{VeeamRTO}.
+        
+        \subsection{Zero-Trust Architectuur en Gegevensbeveiliging}
+        
+        Volgens \textcite{NISTFIPS140} is **gegevensversleuteling** een cruciale vereiste voor het veilig opslaan en synchroniseren van EFB-data. Moderne encryptiemethoden zoals **AES-256 en TLS** zorgen ervoor dat alleen geautoriseerde gebruikers toegang krijgen tot de gegevens.
+        
+        Een **zero-trust beveiligingsmodel** kan volgens \textcite{VinayakBhuvi} helpen om ongeautoriseerde toegang tot kritieke data te voorkomen. Dit model vereist een strikte authenticatie voor **elke interactie** met het systeem en voorkomt datalekken door alleen gegevensoverdracht toe te staan via **gecontroleerde, geverifieerde kanalen**.
+        
+        \section{Recovery Time Objective (RTO) en Recovery Point Objective (RPO)}
+        
+        Het optimaliseren van **Recovery Time Objective (RTO)** en **Recovery Point Objective (RPO)** is essentieel om operationele continuïteit te waarborgen. RTO geeft de maximale tijdsduur aan die een systeem kan uitvallen zonder operationele verstoring, terwijl RPO bepaalt hoeveel data maximaal verloren mag gaan in geval van een crash.
+        
+        \textcite{VeeamRTO} benadrukt dat het **automatiseren van back-ups** en het implementeren van een **failover-systeem** de efficiëntie van gegevensherstel kan verbeteren. \textcite{MicrosoftBackup} stelt dat **snapshot-gebaseerde back-ups** een snellere hersteltijd mogelijk maken dan traditionele full-backups.
+        
+        \section{Regelgeving en Normen voor EFB-gebruik}
+        
+        De **FAA-richtlijnen** \autocite{FAA_AC91-78A} specificeren dat alle EFB-systemen moeten voldoen aan **strikte beveiligingsnormen**, waaronder versleutelde opslag en toegangscontroles. Dit sluit aan bij de **NAVO-beveiligingsnormen** \autocite{AD070001}, die aanvullende maatregelen voorschrijven voor het beschermen van **geclassificeerde luchtvaartdata**.
+        
+        Volgens de **Belgische militaire richtlijnen** \autocite{ACISAPGSECVEIL001} moet geclassificeerde data worden opgeslagen met **versleuteling op het hoogste beveiligingsniveau**, terwijl **incidentresponsprocedures** aanwezig moeten zijn om **cyberdreigingen** direct aan te pakken.
+        
+        \section{Beschikbare Technologieën en Tools voor Synchronisatie en Back-up}
+        
+        Een overzicht van beschikbare softwareoplossingen voor het beheer van EFB-back-ups en synchronisatie:
+        
+        \begin{itemize}
+            \item **Veeam Backup**: Ondersteunt **hybride cloudback-ups** en biedt een snelle herstelprocedure \autocite{VeeamRTO}.
+            \item **Azure Backup**: Bevat ingebouwde compliance-functionaliteiten en versleutelde opslag \autocite{MicrosoftBackup}.
+            \item **AWS Backup**: Multi-tier back-upstrategie met focus op **schaalbaarheid en beveiliging** \autocite{AWSBackup}.
+            \item **Logipad EFB**: Specifiek ontworpen voor **offline synchronisatie in luchtvaartomgevingen** zonder internettoegang \autocite{LogipadEFB}.
+        \end{itemize}
+        
+        \section{Toekomstige Ontwikkelingen en Best Practices}
+        
+        Op basis van de literatuur kunnen **verschillende best practices** worden geïdentificeerd:
+        
+        \begin{itemize}
+            \item **Gebruik van blockchain-technologie** voor onwijzigbare logs en **tamper-proof back-ups** \autocite{VinayakBhuvi}.
+            \item **AI-gebaseerde anomaly detection** om afwijkingen in gegevensoverdracht te detecteren en te mitigeren.
+            \item **Implementatie van autonome back-upsystemen** die functioneren zonder menselijke tussenkomst en zelfherstellende capaciteiten bevatten.
+        \end{itemize}
+        
+        Volgens \textcite{Abdelaziz48PP100_116} kunnen **automatische validatiemechanismen** helpen om gegevensintegriteit te bewaken, zelfs in offline omgevingen.
+        
+        \section{Conclusie}
+        
+        Deze literatuurstudie toont aan dat een **hybride back-upstrategie**, gecombineerd met **zero-trust beveiliging en versleutelde gegevensopslag**, de meest effectieve oplossing biedt voor het beschermen van EFB-data. Tegelijkertijd moeten deze oplossingen voldoen aan bestaande regelgeving, zoals de **FAA- en NAVO-veiligheidsrichtlijnen**, om de betrouwbaarheid en veiligheid van luchtvaartgegevens te garanderen.
+        
+        Door **nieuwe technologieën**, zoals **blockchain** en **AI-gebaseerde monitoring**, te integreren in toekomstige EFB-systemen, kan de veerkracht van luchtvaartdata aanzienlijk worden verhoogd. Deze inzichten vormen een solide basis voor verdere ontwikkeling van **betrouwbare, efficiënte en veilige synchronisatie- en back-upstrategieën** in luchtvaartomgevingen.
+        
+        \printbibliography
+        
+    \end{document}
